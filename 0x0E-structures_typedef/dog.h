@@ -1,13 +1,13 @@
 #ifndef DOG_H
 #define DOG_H
+
 /**
- * main- a function to define a new type struct dog
- * struct dog: a dog's basic info
- * @name: first member
- * @age: second member
+ * struct dog - a dog's basic info
+ * @name: First member
+ * @age: Second member
  * @owner: Third member
- * Return: always (0) success
- * description : print all argument recieved
+ *
+ * Description: Longer description
  */
 struct dog
 {
@@ -15,6 +15,7 @@ struct dog
 	float age;
 	char *owner;
 };
+
 /**
  * dog_t - typedef for struct dog
  */
@@ -28,3 +29,4 @@ char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 
 #endif
+
