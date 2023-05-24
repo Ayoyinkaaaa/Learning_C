@@ -1,18 +1,15 @@
 #include <stdio.h>
 
-/**
- * print_name - a function that prints a name.
- * @name: name of the person.
- */
-void print_name(char *name, void (*f)(char *))
-{
-    printf("%s\n", name);
+void print_name(char *name, void (*f)(char *)) {
+    f(name);
 }
 
-int main(void)
-{
-    char name[] = "Ayoyinka";
-    print_name(name, NULL);
+void print_to_console(char *name) {
+    printf("Name: %s\n", name);
+}
 
+int main() {
+    char name[] = "John Doe";
+    print_name(name, print_to_console);
     return 0;
 }
