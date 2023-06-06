@@ -2,7 +2,7 @@
 #include "lists.h"
 
 /**
- * list_intlen - prints all the elements in the listint_t list.
+ * lisint_len - prints all the elements in the listint_t list.
  *
  * @h: a pinter to the head nodes.
  *
@@ -11,11 +11,12 @@
 size_t listint_len(const listint_t *h)
 {
 	size_t count = 0;
+	const listint_t *temp = h;
 
-	while (h != NULL)
+	while (temp != NULL)
 	{
 		count++;
-		h = h->next;
+		temp = temp->next;
 	}
 	return (count);
 }
