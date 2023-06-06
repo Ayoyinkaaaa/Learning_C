@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * listint_len - prints all the elements in the listint_t list.
@@ -12,12 +13,12 @@
  */
 size_t listint_len(const listint_t *h)
 {
-	size_t i;
-	const listint_t *temp = h;
+	size_t num = 0;
 
-	for (i = 0; temp; i++)
-	{
-		temp = temp->next;
-	}
-	return (n);
+		while (h)
+		{
+			num++;
+			h = h->next;
+		}
+	return (num);
 }
