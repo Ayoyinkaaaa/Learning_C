@@ -9,7 +9,6 @@
  *
  * Return: 0 if the program executes successfully.
  */
-
 int main(int argc, char *argv[])
 {
 	printf("%s\n", argv[0]);
