@@ -10,32 +10,30 @@
  */
 int main(int argc, char *argv[])
 {
-	int cents;
-	int coins[5] = {25, 10, 5, 2, 1};
-	int num_coins;
-	int j;
-	int result;
+	int num_coins, i, result;
+	int coins[] = {25, 10, 5, 2, 1};
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	cents = atoi(argv[1]);
+	num_coins = atoi(argv[1]);
+	result = 0;
 
-	if (cents > 0)
+	if (num_coins < 0)
 	{
 		printf("0\n");
 		return (0);
 	}
 
-	num_coins = 0;
-
-	for (j = 0; j < 5; j++)
+	for (i = 0; i < 5 && num_coins >= 0; i++)
 	{
-		result = cents / coins[j];
-		num_coins += result;
-		cents -= result * coins[j];
+		while (num_coins >= coins[i])
+		{
+			result++;
+			num_coins -= coins[i];
+		}
 	}
 
 	printf("%d\n", num_coins);
