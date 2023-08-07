@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * main - prints the minimum number of coinsto make change
+ * main - prints the minimum number of coins.
  * for an amount of money.
  * @argc: count of the arguments.
  * @argv: the array arguments.
@@ -10,7 +10,11 @@
  */
 int main(int argc, char *argv[])
 {
-	int cents, coins = 0;
+	int cents;
+	int coins[5] = {25, 10, 5, 2, 1};
+	int num_coins;
+	int j;
+	int result;
 
 	if (argc != 2)
 	{
@@ -19,32 +23,21 @@ int main(int argc, char *argv[])
 	}
 	cents = atoi(argv[1]);
 
-	while (cents > 0)
+	if (cents > 0)
 	{
-		coins++;
-		if ((cents - 25) >= 0)
-		{
-			cents -= 25;
-			continue;
-		}
-		if ((cents -  10) >= 0)
-		{
-			cents -= 10;
-			continue;
-		}
-		if ((cents - 5) >= 0)
-		{
-			cents -= 5;
-			continue;
-		}
-		if ((cents - 2) >= 0)
-		{
-			cents -= 2;
-			coins++;
-			continue;
-		}
-		cents--;
-	}
-		printf("%d\n", coins);
+		printf("0\n");
 		return (0);
+	}
+
+	num_coins = 0;
+
+	for (j = 0; j < 5; j++)
+	{
+		result = cents / coins[j];
+		num_coins += result;
+		cents -= result * coins[j];
+	}
+
+	printf("%d\n", num_coins);
+	return (0);
 }
