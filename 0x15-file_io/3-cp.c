@@ -70,6 +70,16 @@ int copyFile(const char *srcPath, const char *destPath)
 		close(file_to);
 		exit(98);
 	}
+	if (close(file_fr) < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_fr);
+		exit(100);
+	}
+	if (close(file_to) < 0)
+        {
+                dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_to);
+                exit(100);
+        }
 	close(file_fr);
 	close(file_to);
 	return (0);
