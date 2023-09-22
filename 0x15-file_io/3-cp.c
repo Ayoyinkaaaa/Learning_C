@@ -42,7 +42,7 @@ int copyFile(const char *srcPath, const char *destPath)
 	if (file_fr < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", srcPath);
-		exit(98);
+		return (98);
 	}
 
 	file_to = open(destPath, O_CREAT | O_WRONLY | O_TRUNC, 0664);
@@ -51,7 +51,7 @@ int copyFile(const char *srcPath, const char *destPath)
 	{
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", destPath);
 		close(file_fr);
-		exit(99);
+		return (99);
 	}
 	while ((r = read(file_fr, buf, BUFSIZ)) > 0)
 	{
@@ -68,17 +68,17 @@ int copyFile(const char *srcPath, const char *destPath)
 		dprintf(STDERR_FILENO, "Error: cam't read from file %s\n", srcPath);
 		close(file_fr);
 		close(file_to);
-		exit(98);
+		return (98);
 	}
 	if (close(file_fr) < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_fr);
-		exit(100);
+		return (100);
 	}
 	if (close(file_to) < 0)
         {
                 dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_to);
-                exit(100);
+		return (100);
         }
 	close(file_fr);
 	close(file_to);
