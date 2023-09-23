@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -64,8 +64,8 @@ int copyFile(const char *srcPath, const char *destPath)
 		}
 	}
 	if (r < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: cam't read from file %s\n", srcPath);
+{
+		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", srcPath);
 		close(file_fr);
 		close(file_to);
 		exit(98);
